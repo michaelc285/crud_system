@@ -25,6 +25,6 @@ They all can change password inside their own panel
 the objective of creating this project is let me pick up java, oop and sql again
 
 # How to get started
-1. Execute the initial.sql in sql folder by using MySql\
+1. Execute the initial.sql in sql folder by using MySql
 2. you can change the database config(username, password, database url) by changing the DB_Config in 'empsystem/src/com/empsystem/resources/'
 
