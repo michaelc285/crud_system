@@ -153,7 +153,7 @@ public class LoginPanelUI extends BasePanel {
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 840, Short.MAX_VALUE)
         );
 
         add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 840));
@@ -196,11 +196,11 @@ public class LoginPanelUI extends BasePanel {
                 break;
             case 2:
                 usernameField.setText("testManager");
-                passwordField.setText("00000000");
+                passwordField.setText("Aa123456");
                 break;                
             case 3:
                 usernameField.setText("testStaff");
-                passwordField.setText("00000000");
+                passwordField.setText("Aa123456");
                 break;
             default:
                 usernameField.setText("");
