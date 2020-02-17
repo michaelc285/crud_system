@@ -1,6 +1,7 @@
 # About this project
+This project is to demonstrate company's employees and projects management system.
 In this application there are divided into three types of system users: Admin, Manager and Staff.\
-The differences of these users:
+The function differences between these users:
 <ul>
   <li>Admin</li>
   <ul>
@@ -19,7 +20,7 @@ The differences of these users:
       <li>Task read only</li>
     </ul>
 </ul>
-They all can change password inside their own panel
+They all can change password on their own panel
 
 # Objective
 The objective of creating this project is let me pick up java, oop and sql again
