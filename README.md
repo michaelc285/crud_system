@@ -5,8 +5,8 @@ The differences of these users:
   <li>Admin</li>
   <ul>
     <li>Register new employees</li>
-    <li>Deregister employees</lu>
-    <li>Validate accounts</li>
+    <li>Revoke employees</lu>
+    <li>Activate accounts</li>
   </ul>
   <li>Manager</li>
     <ul>
@@ -22,7 +22,7 @@ The differences of these users:
 They all can change password inside their own panel
 
 # Objective
-the objective of creating this project is let me pick up java, oop and sql again
+The objective of creating this project is let me pick up java, oop and sql again
 
 # How to get started
 1. Execute the initial.sql in sql folder by using MySql
