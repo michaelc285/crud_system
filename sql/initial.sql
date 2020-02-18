@@ -1,8 +1,8 @@
-# Create Schema
+# Step 1 Create Schema
 
 CREATE SCHEMA 'employees';
 
-# Create Tables
+# Step 2 Create Tables
 
 # Create departments
 create table departments(
@@ -104,9 +104,9 @@ INSERT INTO employees (first_name, last_name , gender, birth_date, hire_date) Va
 INSERT INTO employees (first_name, last_name , gender, birth_date, hire_date) Values('Test','Staff','M','1960-01-01','1960-01-01'); # Staff
 
 #INSERT data of dept_emp
-INSERT INTO dept_manager(emp_no, dept_no, from_date, to_date) VALUES(1001, 'd000', '1960-01-01', '9999-01-01'); #Admin
-INSERT INTO dept_manager(emp_no, dept_no, from_date, to_date) VALUES(1002, 'd004', '1960-01-01', '9999-01-01'); #Manager
-INSERT INTO dept_manager(emp_no, dept_no, from_date, to_date) VALUES(1003, 'd004', '1960-01-01', '9999-01-01'); #Staff
+INSERT INTO dept_emp(emp_no, dept_no, from_date, to_date) VALUES(1001, 'd000', '1960-01-01', '9999-01-01'); #Admin
+INSERT INTO dept_emp(emp_no, dept_no, from_date, to_date) VALUES(1002, 'd004', '1960-01-01', '9999-01-01'); #Manager
+INSERT INTO dept_emp(emp_no, dept_no, from_date, to_date) VALUES(1003, 'd004', '1960-01-01', '9999-01-01'); #Staff
 
 #INSERT data of dept_manager
 INSERT INTO dept_manager(emp_no, dept_no, from_date, to_date) VALUES(1002, 'd004', '1960-01-01', '9999-01-01'); # Manager
