@@ -711,8 +711,8 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="Cancel">
-                <Property name="tabTitle" type="java.lang.String" value="Cancel"/>
+              <JTabbedPaneConstraints tabName="Revoke">
+                <Property name="tabTitle" type="java.lang.String" value="Revoke"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

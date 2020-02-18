@@ -1,3 +1,7 @@
+# Create Schema
+
+CREATE SCHEMA 'employees';
+
 # Create Tables
 
 # Create departments

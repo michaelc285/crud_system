@@ -648,7 +648,7 @@ public class AdminMainPanelUI extends BasePanel {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 705, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Cancel", jPanel3);
+        jTabbedPane1.addTab("Revoke", jPanel3);
 
         personalInfoButton.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         personalInfoButton.setText("Personal Info");
