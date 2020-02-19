@@ -45,19 +45,19 @@ public class ManagerMainPanelUI extends BasePanel {
     
     public void refreshTaskTable(){
         cleanTableModel(taskTable);
-        getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null) ,taskTable);
+        taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
         System.out.println("Task Table refreshed");
     }
     
     public void refreshDeptTable(){
         cleanTableModel(deptartmentMemberTable);
-        getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null), deptartmentMemberTable);
+        deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
         System.out.println("Department Table refreshed");
     }
     
     public void refreshProjectTable(){
         cleanTableModel(projectTable);
-        getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null) ,projectTable);
+        projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
         System.out.println("Project Table refreshed");
     }
     /**
@@ -358,28 +358,28 @@ public class ManagerMainPanelUI extends BasePanel {
          cleanTableModel(deptartmentMemberTable);     
          switch(searchComboBox.getSelectedIndex()){
              case 0: //All
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
                  break;
              case 1: // Job Title
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.JOB_TITLE, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.JOB_TITLE, inputValue)));
                  break;
              case 2: // Emp Name
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_FULL_NAME, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_FULL_NAME, inputValue)));
                  break;
              case 3:// Emp ID
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_NUMBER, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_NUMBER, inputValue)));
                  break;
              case 4:// Current Job Less and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_LESS_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_LESS_AND_EQUAL, inputValue)));
                  break;
              case 5: // Current Job Greater and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue)));
                  break;             
              case 6: //Total Job less and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_LESS_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_LESS_AND_EQUAL, inputValue)));
                  break;
              case 7://Total Job Greater and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue)));
                  break;
              default:
                  System.out.println("What are you searching");           
@@ -394,19 +394,19 @@ public class ManagerMainPanelUI extends BasePanel {
          cleanTableModel(projectTable);
          switch(searchComboBox.getSelectedIndex()){            
             case 0: //All
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null) ,projectTable);      
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));      
                 break;
             case 1://search by project id                  
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ID, searchValue) ,projectTable);       
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ID, searchValue)));       
                 break;
             case 2://search by project name
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_NAME, searchValue) ,projectTable);
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_NAME, searchValue)));
                 break;
             case 3: // Still processing project
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_STILL_PROCESSING, null) ,projectTable);
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_STILL_PROCESSING, null)));
                 break;
             case 4: // Ended project
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ENDED, null) ,projectTable);
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ENDED, null)));
                 break;
             default: break;              
         }       
@@ -418,22 +418,22 @@ public class ManagerMainPanelUI extends BasePanel {
         cleanTableModel(taskTable);
         switch(searchComboBox.getSelectedIndex()){
             case 0: // ALL task
-                getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
                 break;
             case 1:// project id
-                getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ID, inputValue) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ID, inputValue)));
                 break;
             case 2: // Project name
-                getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_NAME, inputValue) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_NAME, inputValue)));
                 break;
             case 3:// project still processing
-                getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_STILL_PROCESSING, null) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_STILL_PROCESSING, null)));
                 break;
             case 4:// project end
-                getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ENDED, null) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ENDED, null)));
                 break;
             case 5:// Employee ID
-                getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.EMPLOYEE_NUMBER, inputValue) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.EMPLOYEE_NUMBER, inputValue)));
             default: 
                 System.out.println("What are you looking for");
                 break;

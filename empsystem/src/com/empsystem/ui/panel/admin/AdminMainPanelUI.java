@@ -81,13 +81,13 @@ public class AdminMainPanelUI extends BasePanel {
     
     private void refreshPendingApproveTable(){
         cleanTableModel(pendingApprovalTable);
-        getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.ALL, null), pendingApprovalTable);
+        pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.ALL, null)));
         selectedPendingApprovalIndex=null;
     }
     
     private void refreshCurrentEmployeesTable(){
         cleanTableModel(cancelEmployeeTable);
-        getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.ALL, null) , cancelEmployeeTable);
+        cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.ALL, null)));
         selectedCurrentEmployeeIndex=null;
     }
     
@@ -871,26 +871,27 @@ public class AdminMainPanelUI extends BasePanel {
         cleanTableModel(pendingApprovalTable);
         switch(searchComboBox.getSelectedIndex()){
             case 0: //All
-                getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.ALL,null) , pendingApprovalTable);
+                pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.ALL,null)));
                 break;
             case 1:// Emp No.                
-                getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.EMPLOYEE_NUMBER,inputValue) , pendingApprovalTable);
+                pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.EMPLOYEE_NUMBER,inputValue)));
                 break;
             case 2: // Depatment Name
-                getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.DEPARTMENT_NAME, inputValue), pendingApprovalTable);
+                pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.DEPARTMENT_NAME, inputValue)));
                 break;
             case 3: //Department Number
-                getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.DEPARTMENT_NUMBER, inputValue), pendingApprovalTable);
+                pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.DEPARTMENT_NUMBER, inputValue)));
                 break;
             case 4:  // Job Title
-                getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.JOB_TITLE, inputValue), pendingApprovalTable);
+                pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.JOB_TITLE, inputValue)));
                 break;
             case 5: // Name
-                getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.EMPLOYEE_FULL_NAME, inputValue), pendingApprovalTable);
+                pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.EMPLOYEE_FULL_NAME, inputValue)));
                 break;
             default: 
                 System.out.println("What are you searching ?");
                 break;
+                
         }
     }
         
@@ -900,22 +901,22 @@ public class AdminMainPanelUI extends BasePanel {
         cleanTableModel(cancelEmployeeTable);
         switch(currentEmployeeSearchComboBox.getSelectedIndex()){
             case 0: //All
-                getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.ALL, null) , cancelEmployeeTable);
+                cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.ALL, null)));
                 break;
             case 1:// Emp No.               
-                getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.EMPLOYEE_NUMBER,inputValue) , cancelEmployeeTable);
+                cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.EMPLOYEE_NUMBER,inputValue)));
                 break;
             case 2: // Depatment Name               
-                getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.DEPARTMENT_NAME, inputValue), cancelEmployeeTable);
+                cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.DEPARTMENT_NAME, inputValue)));
                 break;
             case 3: //Department Number
-                getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.DEPARTMENT_NUMBER, inputValue), cancelEmployeeTable);
+                cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.DEPARTMENT_NUMBER, inputValue)));
                 break;
             case 4:  // Job Title
-                getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.JOB_TITLE, inputValue), cancelEmployeeTable);
+                cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.JOB_TITLE, inputValue)));
                 break;
             case 5: // Name
-                getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.EMPLOYEE_FULL_NAME, inputValue), cancelEmployeeTable);
+                cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.EMPLOYEE_FULL_NAME, inputValue)));
                 break;
             default: 
                 System.out.println("What are you searching ?");

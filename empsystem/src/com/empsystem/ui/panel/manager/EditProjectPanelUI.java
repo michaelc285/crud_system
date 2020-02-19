@@ -989,7 +989,7 @@ public class EditProjectPanelUI extends BasePanel {
             //Tasks by project ID
             Integer project_id = getComboBoxProjectID(projectComboBox);               
             cleanTableModel(taskMembersTable);
-            getProjectMemberTableModel(projectDao.projectMemberList(loginEmployee.getEmployee_no(), project_id) ,taskMembersTable);
+            taskMembersTable.setModel(getProjectMemberTableModel(projectDao.projectMemberList(loginEmployee.getEmployee_no(), project_id)));
          }else{
             // All Tasks
             refreshTaskTable();
@@ -1047,17 +1047,17 @@ public class EditProjectPanelUI extends BasePanel {
     
     private void refreshProjectTable(){        
         cleanTableModel(projectTable);
-        getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null) ,projectTable);
+        projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
     }
     
     private void refreshTaskTable(){      
         cleanTableModel(taskMembersTable);
-        getProjectMemberTableModel(projectDao.projectMemberList(loginEmployee.getEmployee_no()),taskMembersTable);
+        taskMembersTable.setModel(getProjectMemberTableModel(projectDao.projectMemberList(loginEmployee.getEmployee_no())));
     }
     
     private void refreshDeptMemberTable(){        
         cleanTableModel(deptartmentMemberTable);
-        getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null), deptartmentMemberTable);
+        deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
     }
  
     private void cleanEditProjectPanelField(){
@@ -1148,16 +1148,16 @@ public class EditProjectPanelUI extends BasePanel {
                 System.out.println("Refeshed Project Table");
                 break;
             case 1://search by project id                  
-                    getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ID, searchValue) ,projectTable);       
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ID, searchValue)));       
                 break;
             case 2://search by project name
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_NAME, searchValue) ,projectTable);
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_NAME, searchValue)));
                 break;
             case 3: // Still processing project
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_STILL_PROCESSING, null) ,projectTable);
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_STILL_PROCESSING, null)));
                 break;
             case 4: // Ended project
-                getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ENDED, null) ,projectTable);
+                projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.PROJECT_ENDED, null)));
                 break;
             default: break;              
         }       
@@ -1172,28 +1172,28 @@ public class EditProjectPanelUI extends BasePanel {
                  //        
          switch(deptMemberSearchComboBox.getSelectedIndex()){
              case 0: //All
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
                  break;
              case 1: // Job Title
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.JOB_TITLE, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.JOB_TITLE, inputValue)));
                  break;
              case 2: // Emp Name
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_FULL_NAME, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_FULL_NAME, inputValue)));
                  break;
              case 3:// Emp ID
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_NUMBER, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.EMPLOYEE_NUMBER, inputValue)));
                  break;
              case 4:// Current Job Less and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_LESS_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_LESS_AND_EQUAL, inputValue)));
                  break;
              case 5: // Current Job Greater and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.CURRENT_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue)));
                  break;             
              case 6: //Total Job less and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_LESS_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_LESS_AND_EQUAL, inputValue)));
                  break;
              case 7://Total Job Greater and equal
-                 getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue), deptartmentMemberTable);
+                 deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.TOTAL_PARTAKE_JOB_GREATER_AND_EQUAL, inputValue)));
                  break;
              default:
                  System.out.println("What are you searching");           

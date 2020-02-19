@@ -38,7 +38,7 @@ public class StaffMainPanelUI extends BasePanel {
     
     public void refreshTaskTable(){
         cleanTableModel(taskTable);
-        getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.ALL, null) ,taskTable);
+        taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.ALL, null)));
         System.out.println("Task Table refreshed");
     }
     
@@ -152,7 +152,8 @@ public class StaffMainPanelUI extends BasePanel {
                         .addGap(9, 9, 9)
                         .addComponent(personalInfoBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(9, 9, 9)
-                        .addComponent(logoutBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(logoutBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -166,7 +167,8 @@ public class StaffMainPanelUI extends BasePanel {
                     .addComponent(searchButton)
                     .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(personalInfoBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(logoutBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(logoutBotton, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         logoutBotton.getAccessibleContext().setAccessibleName("logoutButton");
@@ -207,22 +209,22 @@ public class StaffMainPanelUI extends BasePanel {
         cleanTableModel(taskTable);
         switch(deptMemberSearchComboBox.getSelectedIndex()){
             case 0: // ALL task
-                getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.ALL, null) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.ALL, null)));
                 break;
             case 1:// project id
-                getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_ID, inputValue) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_ID, inputValue)));
                 break;
             case 2: // Project name
-                getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_NAME, inputValue) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_NAME, inputValue)));
                 break;
             case 3:// project_leader_id
-                getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_LEADER_ID, inputValue) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_LEADER_ID, inputValue)));
                 break;
             case 4:// project still processing
-                getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_STILL_PROCESSING, null) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_STILL_PROCESSING, null)));
                 break;
             case 5:// project end
-                getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_ENDED, null) ,taskTable);
+                taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.PROJECT_ENDED, null)));
                 break;
             default: 
                 System.out.println("What are you looking for");
