@@ -37,7 +37,6 @@ public class StaffMainPanelUI extends BasePanel {
     
     
     public void refreshTaskTable(){
-        cleanTableModel(taskTable);
         taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.ALL, null)));
         System.out.println("Task Table refreshed");
     }
@@ -161,13 +160,14 @@ public class StaffMainPanelUI extends BasePanel {
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 486, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(logoutBotton)
-                    .addComponent(personalInfoBotton)
-                    .addComponent(refreshButton)
-                    .addComponent(searchButton)
-                    .addComponent(searchDepartmentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deptMemberSearchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(refreshButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(logoutBotton)
+                        .addComponent(personalInfoBotton)
+                        .addComponent(searchButton)
+                        .addComponent(searchDepartmentTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deptMemberSearchComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
 
@@ -206,7 +206,6 @@ public class StaffMainPanelUI extends BasePanel {
     private void searchTask(){
         String inputValue = searchDepartmentTextField.getText();
         System.out.println("Search Task : "+inputValue);
-        cleanTableModel(taskTable);
         switch(deptMemberSearchComboBox.getSelectedIndex()){
             case 0: // ALL task
                 taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectMember(loginEmployee.getEmployee_no(),SearchSelection.ALL, null)));

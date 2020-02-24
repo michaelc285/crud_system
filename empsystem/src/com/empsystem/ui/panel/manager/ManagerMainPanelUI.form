@@ -83,14 +83,12 @@
                   <Component id="searchComboBox" max="32767" attributes="0"/>
                   <Component id="searchDepartmentTextField" max="32767" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                      <Component id="searchButton" alignment="3" max="32767" attributes="0"/>
-                      <Group type="103" alignment="3" groupAlignment="3" attributes="0">
-                          <Component id="refreshButton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="editProjectButton" alignment="3" max="32767" attributes="0"/>
-                          <Component id="personalInfoBotton1" alignment="3" max="32767" attributes="0"/>
-                          <Component id="logoutBotton" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="refreshButton" alignment="3" max="32767" attributes="0"/>
+                      <Component id="editProjectButton" alignment="3" max="32767" attributes="0"/>
+                      <Component id="personalInfoBotton1" alignment="3" max="32767" attributes="0"/>
+                      <Component id="logoutBotton" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="searchButton" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

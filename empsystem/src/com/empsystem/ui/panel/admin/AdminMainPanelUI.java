@@ -80,13 +80,11 @@ public class AdminMainPanelUI extends BasePanel {
     }   
     
     private void refreshPendingApproveTable(){
-        cleanTableModel(pendingApprovalTable);
         pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.ALL, null)));
         selectedPendingApprovalIndex=null;
     }
     
     private void refreshCurrentEmployeesTable(){
-        cleanTableModel(cancelEmployeeTable);
         cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.ALL, null)));
         selectedCurrentEmployeeIndex=null;
     }
@@ -845,7 +843,6 @@ public class AdminMainPanelUI extends BasePanel {
     private void searchOnPendingApproval(){
         String inputValue=searchTextField.getText();
         System.out.println("Input value on searchTextField is : " + inputValue);
-        cleanTableModel(pendingApprovalTable);
         switch(searchComboBox.getSelectedIndex()){
             case 0: //All
                 pendingApprovalTable.setModel(getAdminMainMenuTableModel(departmentDao.employeeInvalidAccount(SearchSelection.ALL,null)));
@@ -875,7 +872,6 @@ public class AdminMainPanelUI extends BasePanel {
      private void searchCurrentEmployees(){
         String inputValue=currentEmployeeSearchTextField.getText();
         System.out.println("Input value on searchTextField is : " + inputValue);
-        cleanTableModel(cancelEmployeeTable);
         switch(currentEmployeeSearchComboBox.getSelectedIndex()){
             case 0: //All
                 cancelEmployeeTable.setModel(getAdminMainMenuTableModel(departmentDao.currentEmployeesList(SearchSelection.ALL, null)));

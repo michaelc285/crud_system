@@ -1057,17 +1057,17 @@ public class EditProjectPanelUI extends BasePanel {
             
     
     private void refreshProjectTable(){        
-        cleanTableModel(projectTable);
+        //cleanTableModel(projectTable);
         projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
     }
     
     private void refreshTaskTable(){      
-        cleanTableModel(taskMembersTable);
+        //cleanTableModel(taskMembersTable);
         taskMembersTable.setModel(getProjectMemberTableModel(projectDao.projectMemberList(loginEmployee.getEmployee_no())));
     }
     
     private void refreshDeptMemberTable(){        
-        cleanTableModel(deptartmentMemberTable);
+        //cleanTableModel(deptartmentMemberTable);
         deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
     }
  
@@ -1152,7 +1152,7 @@ public class EditProjectPanelUI extends BasePanel {
      private void searchProjects(){
          String searchValue = searchProjectTextField.getText();
          System.out.println("Searching: "+ searchValue);
-         cleanTableModel(projectTable);
+         //cleanTableModel(projectTable);
          switch(projectSearchComboBox.getSelectedIndex()){            
             case 0: //All
                 refreshProjectTable();
@@ -1178,7 +1178,7 @@ public class EditProjectPanelUI extends BasePanel {
      private void departmentMembersSearch(){
          String inputValue=searchDepartmentTextField.getText();
          System.out.println("Searching: " + inputValue);
-         cleanTableModel(deptartmentMemberTable);
+         //cleanTableModel(deptartmentMemberTable);
                  //getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSeletion.ALL, null), deptartmentMemberTable);
                  //        
          switch(deptMemberSearchComboBox.getSelectedIndex()){

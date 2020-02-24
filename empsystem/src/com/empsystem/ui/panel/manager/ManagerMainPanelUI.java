@@ -44,19 +44,16 @@ public class ManagerMainPanelUI extends BasePanel {
     
     
     public void refreshTaskTable(){
-        cleanTableModel(taskTable);
         taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
         System.out.println("Task Table refreshed");
     }
     
     public void refreshDeptTable(){
-        cleanTableModel(deptartmentMemberTable);
         deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
         System.out.println("Department Table refreshed");
     }
     
     public void refreshProjectTable(){
-        cleanTableModel(projectTable);
         projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
         System.out.println("Project Table refreshed");
     }
@@ -281,12 +278,11 @@ public class ManagerMainPanelUI extends BasePanel {
                     .addComponent(searchComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(searchDepartmentTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(editProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(personalInfoBotton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(logoutBotton))))
+                        .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(editProjectButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(personalInfoBotton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(logoutBotton))
+                    .addComponent(searchButton))
                 .addContainerGap())
         );
 
@@ -365,7 +361,6 @@ public class ManagerMainPanelUI extends BasePanel {
     private void departmentMembersSearch(){
          String inputValue=searchDepartmentTextField.getText();
          System.out.println("Searching: " + inputValue);
-         cleanTableModel(deptartmentMemberTable);     
          switch(searchComboBox.getSelectedIndex()){
              case 0: //All
                  deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
@@ -401,7 +396,6 @@ public class ManagerMainPanelUI extends BasePanel {
      private void searchProjects(){
          String searchValue = searchDepartmentTextField.getText();
          System.out.println("Searching: "+ searchValue);
-         cleanTableModel(projectTable);
          switch(searchComboBox.getSelectedIndex()){            
             case 0: //All
                 projectTable.setModel(getProjectTableModel(projectDao.projectListByProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));      
@@ -425,7 +419,6 @@ public class ManagerMainPanelUI extends BasePanel {
      private void searchTask(){
         String inputValue = searchDepartmentTextField.getText();
         System.out.println("Search Task : "+inputValue);
-        cleanTableModel(taskTable);
         switch(searchComboBox.getSelectedIndex()){
             case 0: // ALL task
                 taskTable.setModel(getStaffTaskTableModel(projectDao.taskListForProjectLeader(loginEmployee.getEmployee_no(), SearchSelection.ALL, null)));
