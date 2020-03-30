@@ -18,7 +18,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException{
         //Get username , password, db_url from file
-        Config config=new Config("com\\empsystem\\resources\\DB_Config.cfg");       
+        Config config=new Config("com/empsystem/resources/DB_Config.cfg");       
         String username=config.getProperty("username");
         String password=config.getProperty("password");
         String db_url=config.getProperty("database_url");
@@ -33,6 +33,7 @@ public class Main {
         }
     }    
 }
+
 
 
 

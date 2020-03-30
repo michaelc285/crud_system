@@ -978,7 +978,7 @@ public class EditProjectPanelUI extends BasePanel {
          if(projectComboBox.getSelectedIndex()>0){
             //Tasks by project ID
             Integer project_id = getComboBoxProjectID(projectComboBox);               
-            cleanTableModel(taskMembersTable);
+            //cleanTableModel(taskMembersTable);
             taskMembersTable.setModel(getProjectMemberTableModel(projectDao.projectMemberList(loginEmployee.getEmployee_no(), project_id)));
          }else{
             // All Tasks
@@ -1131,7 +1131,6 @@ public class EditProjectPanelUI extends BasePanel {
      private void searchProjects(){
          String searchValue = searchProjectTextField.getText();
          System.out.println("Searching: "+ searchValue);
-         //cleanTableModel(projectTable);
          switch(projectSearchComboBox.getSelectedIndex()){            
             case 0: //All
                 refreshProjectTable();
@@ -1156,10 +1155,7 @@ public class EditProjectPanelUI extends BasePanel {
      
      private void departmentMembersSearch(){
          String inputValue=searchDepartmentTextField.getText();
-         System.out.println("Searching: " + inputValue);
-         //cleanTableModel(deptartmentMemberTable);
-                 //getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSeletion.ALL, null), deptartmentMemberTable);
-                 //        
+         System.out.println("Searching: " + inputValue);     
          switch(deptMemberSearchComboBox.getSelectedIndex()){
              case 0: //All
                  deptartmentMemberTable.setModel(getDepartmentMemberTableModel(departmentDao.departmentMembersList(loginEmployee.getDepartment_no(),SearchSelection.ALL, null)));
