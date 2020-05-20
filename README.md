@@ -1,31 +1,37 @@
-# About this project
+# My first java crud system
+
+## Getting Started
+1. Run initial.sql in `/crud_system/sql/initial.sql` with MySQL
+2. You may need to modify database config<br/> `/crud_system/empsystem/src/com/empsystem/resources/DB_Config.cfg`
+```
+# Database config
+username = < Your DB login username >
+password = < Your DB login password >
+database_url = jdbc:mysql://< Your DB address >/< Schema >?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false
+```
+
+## About this app
 This project is to demonstrate company's employees and projects management system.
 In this application there are divided into three types of system users: Admin, Manager and Staff.\
 The function differences between these users:
-<ul>
-  <li>Admin</li>
-  <ul>
-    <li>Register new employees</li>
-    <li>Revoke employees</lu>
-    <li>Activate accounts</li>
-  </ul>
-  <li>Manager</li>
-    <ul>
-      <li>Projects Create/Read/Update/Delete</li>
-      <li>Tasks Create/Read/Update/Delete</li>
-      <li>Search Related department's employees</li>
-    </ul>
-  <li>Staff</li>
-    <ul>
-      <li>Task read only</li>
-    </ul>
-</ul>
+```
+ - Admin
+	 - Register new employees
+	 - Revoke employees
+	 - Activate accounts
+ - Manager
+	 - Projects Create/Read/Update/Delete
+	 - Tasks Create/Read/Update/Delete
+	 - Search Related department's employees
+ - Staff
+	 - Task read only
+	 
 They all can change password on their own panel
+```
 
-# Objective
-The objective of creating this project is let me pick up java, oop and sql again
 
-# How to get started
-1. Execute the initial.sql in sql folder with MySql
-2. you can change the database config(username, password, database url) by changing the DB_Config in 'empsystem/src/com/empsystem/resources/'
-
+## FAQ 
+- Objective ?
+	- The objective of creating this project is let me pick up java, oop and sql again
+- What have you learned in this project ?
+	- MySQL, OOP, Java Swing etc...
