@@ -1,4 +1,4 @@
-# Java Project and Human Resources Managment System
+# Project and Human Resources Managment System
 <img src="https://github.com/michaelc285/crud_system/blob/master/image/image1.PNG?raw=true" width="400">
 <img src="https://github.com/michaelc285/crud_system/blob/master/image/image2.JPG?raw=true" width="400">
 
