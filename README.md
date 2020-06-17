@@ -1,4 +1,7 @@
 # My first java crud system
+<img src="https://github.com/michaelc285/crud_system/blob/master/image/image1.PNG?raw=true" width="400">
+<img src="https://github.com/michaelc285/crud_system/blob/master/image/image2.JPG?raw=true" width="400">
+
 
 ## Getting Started
 1. Run initial.sql in `/crud_system/sql/initial.sql` with MySQL
@@ -34,4 +37,4 @@ They all can change password on their own panel
 - Objective ?
 	- The objective of creating this project is let me pick up java, oop and sql again
 - What have you learned in this project ?
-	- MySQL, OOP, Java Swing etc...
+	- MySQL, OOP, Java Swing, JDBC etc...
